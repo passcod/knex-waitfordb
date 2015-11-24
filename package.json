@@ -1,0 +1,32 @@
+{
+  "name": "knex-waitfordb",
+  "version": "1.0.0",
+  "description": "Small utility that reads your knexfile.js and blocks until the DB is ready",
+  "scripts": {
+    "test": "standard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/passcod/knex-waitfordb.git"
+  },
+  "keywords": [
+    "knex",
+    "database",
+    "wait"
+  ],
+  "author": "Félix Saparelli <me@passcod.name>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/passcod/knex-waitfordb/issues"
+  },
+  "homepage": "https://github.com/passcod/knex-waitfordb#readme",
+  "devDependencies": {
+    "standard": "^5.4.1"
+  },
+  "dependencies": {
+    "knex": "^0.9.0"
+  },
+  "bin": {
+    "knex-waitfordb": "index.js"
+  }
+}
