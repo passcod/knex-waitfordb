@@ -6,7 +6,11 @@ if (isNaN(delay)) {
   delay = 1000
 }
 
-const knex = require('knex')(require('./knexfile'))
+const knex = require('knex')(
+  require(
+    require('path').join(process.cwd(), 'knexfile')
+  )
+)
 
 function wait () {
   knex
