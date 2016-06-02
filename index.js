@@ -9,21 +9,21 @@ if (isNaN(delay)) {
 }
 
 const knexfile = argv.knexfile || 'knexfile'
-const knex = require('knex')(
-  require(
-    require('path').join(process.cwd(), knexfile)
-  )
-)
 
 function wait () {
+  const knex = require('knex')(
+    require(
+      require('path').join(process.cwd(), knexfile)
+    )
+  )
   knex
     .raw('SELECT 1 + 1')
     .then(() => void process.exit())
-    .catch(err => {
+    .catch(err => knex.destroy().then(() => {
       console.error(err)
       console.error(`Connection failed, waiting ${delay}...`)
       setTimeout(wait, delay)
-    })
+    }))
 }
 
 wait()
