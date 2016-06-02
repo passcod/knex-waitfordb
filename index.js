@@ -1,14 +1,17 @@
 #! /usr/bin/env node
 'use strict'
 
-let delay = parseInt(process.argv.pop(), 10)
+const argv = require('minimist')(process.argv.slice(2))
+
+let delay = parseInt(argv.delay || argv._.pop(), 10)
 if (isNaN(delay)) {
   delay = 1000
 }
 
+const knexfile = argv.knexfile || 'knexfile'
 const knex = require('knex')(
   require(
-    require('path').join(process.cwd(), 'knexfile')
+    require('path').join(process.cwd(), knexfile)
   )
 )
 

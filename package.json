@@ -24,7 +24,8 @@
     "standard": "^5.4.1"
   },
   "dependencies": {
-    "knex": "^0.9.0"
+    "knex": "^0.9.0",
+    "minimist": "^1.2.0"
   },
   "bin": {
     "knex-waitfordb": "index.js"
