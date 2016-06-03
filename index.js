@@ -1,26 +1,29 @@
 #! /usr/bin/env node
 'use strict'
 
-let delay = parseInt(process.argv.pop(), 10)
+const argv = require('minimist')(process.argv.slice(2))
+
+let delay = parseInt(argv.delay || argv._.pop(), 10)
 if (isNaN(delay)) {
   delay = 1000
 }
 
-const knex = require('knex')(
-  require(
-    require('path').join(process.cwd(), 'knexfile')
-  )
-)
+const knexfile = argv.knexfile || 'knexfile'
 
 function wait () {
+  const knex = require('knex')(
+    require(
+      require('path').join(process.cwd(), knexfile)
+    )
+  )
   knex
     .raw('SELECT 1 + 1')
     .then(() => void process.exit())
-    .catch(err => {
+    .catch(err => knex.destroy().then(() => {
       console.error(err)
       console.error(`Connection failed, waiting ${delay}...`)
       setTimeout(wait, delay)
-    })
+    }))
 }
 
 wait()

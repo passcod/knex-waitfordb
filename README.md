@@ -5,7 +5,10 @@ Does what it says on the tin. Reads your knexfile.js, tries to run
     SELECT 1 + 1;
 
 on your database, if it fails it waits 1000ms, tries again, and returns
-when it can run it. You can optionally pass a custom delay as last argv.
+when it can run it. You can optionally pass a custom delay as last argv or via
+the `--delay [delay]` argument. If your `knexfile.js` is not located in the
+current working directory you can use the
+`--knexfile [path/to/your/knexfile.js]` argument.
 
 ## What?
 
