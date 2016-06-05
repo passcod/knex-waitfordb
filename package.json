@@ -1,6 +1,6 @@
 {
   "name": "knex-waitfordb",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "Small utility that reads your knexfile.js and blocks until the DB is ready",
   "scripts": {
     "test": "standard"
