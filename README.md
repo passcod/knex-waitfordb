@@ -1,5 +1,7 @@
 # knex-waitfordb
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/passcod/knex-waitfordb.svg)](https://greenkeeper.io/)
+
 Does what it says on the tin. Reads your knexfile.js, tries to run
 
     SELECT 1 + 1;
