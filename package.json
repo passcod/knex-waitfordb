@@ -21,10 +21,10 @@
   },
   "homepage": "https://github.com/passcod/knex-waitfordb#readme",
   "devDependencies": {
-    "standard": "^5.4.1"
+    "standard": "^9.0.2"
   },
   "dependencies": {
-    "knex": "^0.9.0",
+    "knex": "^0.12.9",
     "minimist": "^1.2.0"
   },
   "bin": {
